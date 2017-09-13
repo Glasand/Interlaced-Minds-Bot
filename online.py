@@ -42,9 +42,13 @@ async def CheckOnlineUsers():
         embed.set_author(name="Online Users", icon_url="https://cdn.discordapp.com/emojis/261471113509339137.png") #Set embed title
         online = [] #Clear and create online list
         members = list(bot.get_all_members()) #Get list of members
+        members = list(set(members)) #Remove duplicates
         for member in members: #For each member
             if str(member.status) == 'online': #Check if online
                 online.append(str(member)) #Add username to online list
+        
+        online.remove("BenBot#4911")
+        online.remove("Interlaced Minds Official Bot#1706")
         
         for user in online: #For each user in online list
             time = await checktz.GetTime(user)

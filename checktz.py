@@ -8,8 +8,9 @@ import getTime
 bot = botobject.bot
 GMT = ["BhunaBoy", "BenTechy66", "Oliverh57", "Dylan The Spud"]
 BOT = ["Interlaced Minds Official Bot", "BenBot"]
-GER = ["Mr. SoUndso"] #
+GER = ["Mr. SoUndso"]
 POL = ["Lolex"]
+
 
 async def GetTime(username):
     username = username[:-5]
