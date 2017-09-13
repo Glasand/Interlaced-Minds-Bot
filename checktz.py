@@ -19,7 +19,7 @@ async def GetTime(username):
         return "BOT"
     elif username in GER:
         return getTime.GetTime("Europe/Berlin")
-    elif username in GER:
+    elif username in POL:
         return getTime.GetTime("Europe/Warsaw")
         
     else:
