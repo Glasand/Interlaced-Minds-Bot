@@ -55,7 +55,7 @@ async def CheckOnlineUsers():
             time = await checktz.GetTime(user)
             server = bot.get_server("297674982773882892")
             member = server.get_member_named(str(user))
-            embed.add_field(name=str(user), value=time + "\n" + str(member.roles[1])) #add them to the embed
+            embed.add_field(name=str(user), value=time + "\n" + str(member.top_role)) #add them to the embed
         
         
         if message == "none":
