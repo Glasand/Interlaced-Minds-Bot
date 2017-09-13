@@ -3,6 +3,7 @@ import asyncio
 from discord.ext import commands
 import botobject
 import checktz
+import credit
 
 bot = botobject.bot
 
@@ -53,9 +54,10 @@ async def CheckOnlineUsers():
         
         for user in online: #For each user in online list
             time = await checktz.GetTime(user)
+            credits = await credit.getCredit(user)
             server = bot.get_server("297674982773882892")
             member = server.get_member_named(str(user))
-            embed.add_field(name=str(user), value=time + "\n" + str(member.top_role)) #add them to the embed
+            embed.add_field(name=str(user), value=time + "\n" + str(member.top_role) + '\n' + "Credits: " + credits) #add them to the embed
         
         
         if message == "none":
