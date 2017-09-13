@@ -6,7 +6,7 @@ import time
 import getTime
 
 bot = botobject.bot
-GMT = ["BhunaBoy", "BenTechy66", "Oliverh57", "Dylan the spud"]
+GMT = ["BhunaBoy", "BenTechy66", "Oliverh57", "Dylan The Spud"]
 BOT = ["Interlaced Minds Official Bot", "BenBot"]
 GER = ["Mr. SoUndso"] #
 POL = ["Lolex"]

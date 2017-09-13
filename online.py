@@ -44,7 +44,6 @@ async def CheckOnlineUsers():
         members = list(bot.get_all_members()) #Get list of members
         for member in members: #For each member
             if str(member.status) == 'online': #Check if online
-            
                 online.append(str(member)) #Add username to online list
         
         for user in online: #For each user in online list
