@@ -2,11 +2,11 @@
 A bot that says who's online...
 (I know it sounds useless but it can do timezone stuff as well)
 
-#TODO
+# TODO
 maybe add a >credits command
 implement points system for each user with >addpoints (You need the "Give Points" role first)
 Timezones goddammit
 
-#Credits
+# Credits
 Ben
 Calvin might do stuff
