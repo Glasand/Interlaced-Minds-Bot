@@ -47,13 +47,15 @@ async def CheckOnlineUsers():
         for member in members: #For each member
             if str(member.status) == 'online' or str(member.status) == 'dnd': #Check if online
                 online.append(str(member)) #Add username to online list
-        
-        for person in blacklist:
+                
+        for person in blacklist: #blacklist
             online.remove(person)
         
         for user in online: #For each user in online list
             time = await checktz.GetTime(user)
-            embed.add_field(name=str(user), value=time) #add them to the embed with some placeholder time
+            server = bot.get_server("297674982773882892")
+            member = server.get_member_named(str(user))
+            embed.add_field(name=str(user), value=time + "\n" + str(member.roles[1])) #add them to the embed
         
         
         if message == "none":

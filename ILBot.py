@@ -16,5 +16,14 @@ bot = botobject.bot #import the bot object
 
 bot.loop.create_task(online.CheckOnlineUsers()) #create coroutine
 
+@bot.command()
+async def debug():
+    roles = []
+    rolesname = []
+    roles = bot.get_server("297674982773882892").role_hierarchy
+    for role in roles:
+        rolesname.append(role.name)
+    rolesname.remove("@everyone")
+    await bot.say(rolesname)
 
 bot.run(credentials.BotSecret) #run bot
