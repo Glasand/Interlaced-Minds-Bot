@@ -8,7 +8,7 @@ maybe add a >credits command
 
 implement points system for each user with >addpoints (You need the "Give Points" role first)
 
-Timezones goddammit
+(Work in progress) Timezones
 
 # Credits
 Ben
