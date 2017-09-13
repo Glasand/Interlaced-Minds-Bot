@@ -15,6 +15,7 @@ async def CheckOnlineUsers():
     #User defined variables
     #channel id - The channel the bot should send in
     chid = "357557717432401921"
+    blacklist = ['BenBot#4911', 'Interlaced Minds Official Bot#1706', 'Rythm#3722']
     # # # # # # # # # # # #
     #
     #
@@ -47,8 +48,8 @@ async def CheckOnlineUsers():
             if str(member.status) == 'online': #Check if online
                 online.append(str(member)) #Add username to online list
         
-        online.remove("BenBot#4911")
-        online.remove("Interlaced Minds Official Bot#1706")
+        for person in blacklist:
+            online.remove(person)
         
         for user in online: #For each user in online list
             time = await checktz.GetTime(user)
