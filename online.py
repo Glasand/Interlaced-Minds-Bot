@@ -14,7 +14,7 @@ async def CheckOnlineUsers():
     #
     #User defined variables
     #channel id - The channel the bot should send in
-    chid = "356858748775432192"
+    chid = "357557717432401921"
     # # # # # # # # # # # #
     #
     #
@@ -44,6 +44,7 @@ async def CheckOnlineUsers():
         members = list(bot.get_all_members()) #Get list of members
         for member in members: #For each member
             if str(member.status) == 'online': #Check if online
+            
                 online.append(str(member)) #Add username to online list
         
         for user in online: #For each user in online list

@@ -6,17 +6,21 @@ import time
 import getTime
 
 bot = botobject.bot
-GMT = ["BhunaBoy", "BenTechy66"]
+GMT = ["BhunaBoy", "BenTechy66", "Oliverh57", "Dylan the spud"]
 BOT = ["Interlaced Minds Official Bot", "BenBot"]
+GER = ["Mr. SoUndso"] #
+POL = ["Lolex"]
 
 async def GetTime(username):
     username = username[:-5]
     if username in GMT:
-        #return time.strftime("%H:%M:%S" ,getTime.GetTime("Europe/London"))
         return getTime.GetTime("Europe/London")
-        #return "GMT"
     elif username in BOT:
         return "BOT"
+    elif username in GER:
+        return getTime.GetTime("Europe/Berlin")
+    elif username in GER:
+        return getTime.GetTime("Europe/Warsaw")
         
     else:
         return "??:??"
