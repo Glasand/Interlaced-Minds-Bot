@@ -1,0 +1,60 @@
+import discord
+import asyncio
+from discord.ext import commands
+import botobject
+import checktz
+
+bot = botobject.bot
+
+def is_me(m):
+    return m.author == bot.user
+
+async def CheckOnlineUsers():
+    #
+    #
+    #User defined variables
+    #channel id - The channel the bot should send in
+    chid = "356858748775432192"
+    # # # # # # # # # # # #
+    #
+    #
+    #
+    #Parts after this not user servicable!
+    #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    await bot.wait_until_ready() #wait until bot is initialized
+    #handle permissions
+    try:
+        deleted = await bot.purge_from(bot.get_channel(chid), limit=100, check=is_me) #delete previous messages
+    except:
+        await bot.send_message(bot.get_channel(chid), "tried to delete previous message but failed.") #failed to delete previous messages
+    
+    
+    message = "none"  #set to none on first run to send message instead of editing it
+    print("coroutine began") #Debug info
+    
+    #
+    #Begin loop
+    #
+    while not bot.is_closed:
+        embed = discord.Embed(color=0x2c68b2) #Clear and create embed object
+        embed.set_author(name="Online Users", icon_url="https://cdn.discordapp.com/emojis/261471113509339137.png") #Set embed title
+        online = [] #Clear and create online list
+        members = list(bot.get_all_members()) #Get list of members
+        for member in members: #For each member
+            if str(member.status) == 'online': #Check if online
+                online.append(str(member)) #Add username to online list
+        
+        for user in online: #For each user in online list
+            time = await checktz.GetTime(user)
+            embed.add_field(name=str(user), value=time) #add them to the embed with some placeholder time
+        
+        
+        if message == "none":
+            message = await bot.send_message(bot.get_channel(chid), embed=embed) #send the message on first run
+            
+        else:
+            message = await bot.edit_message(message, embed=embed) #edit the message on next runs
+
+        await asyncio.sleep(2) #wait 2 seconds before running again
