@@ -45,7 +45,7 @@ async def CheckOnlineUsers():
         members = list(bot.get_all_members()) #Get list of members
         members = list(set(members)) #Remove duplicates
         for member in members: #For each member
-            if str(member.status) == 'online': #Check if online
+            if str(member.status) == 'online' or str(member.status) == 'dnd': #Check if online
                 online.append(str(member)) #Add username to online list
         
         for person in blacklist:
